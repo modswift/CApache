@@ -62,24 +62,24 @@ while true {
   let rc = apr_dbd_get_row(driverHandle, pool, res, &row, Int32(-1))
   guard rc == 0 else { break }
   
-	print("record:")
+  print("record:")
   let colCount = apr_dbd_num_cols(driverHandle, res)
   for colIdx in 0..<colCount {
-		let name : String
-		if let cstr = apr_dbd_get_name(driverHandle, res, colIdx) {
-			name = String(cString: cstr)
-		}
-		else {
-			name = "[\(colIdx)]"
-		}
+    let name : String
+    if let cstr = apr_dbd_get_name(driverHandle, res, colIdx) {
+      name = String(cString: cstr)
+    }
+    else {
+      name = "[\(colIdx)]"
+    }
 		
-		if let cstr = apr_dbd_get_entry(driverHandle, row, colIdx) {
-			print("  \(name) = \(String(cString: cstr))")
-		}
-		else {
-			print("  \(name) IS NULL")
-		}
-	}
+    if let cstr = apr_dbd_get_entry(driverHandle, row, colIdx) {
+      print("  \(name) = \(String(cString: cstr))")
+    }
+    else {
+      print("  \(name) IS NULL")
+    }
+  }
 }
 ```
 
