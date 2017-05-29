@@ -1,0 +1,31 @@
+//
+// Copyright (C) 2017 ZeeZide GmbH, All Rights Reserved
+// Created by Helge Hess on 2017-03-07.
+//
+
+// Apache Portable Runtime
+
+module CAPR [system] {
+  header "CAPRShim.h"
+  link "apr-1"
+  export *
+}
+
+// Apache Portable Runtime Utilities
+
+module CAPRUtil [system] {
+  use CAPR
+  header "CAPRUtilShim.h"
+  link "aprutil-1"
+  export *
+}
+
+// Apache 2
+
+module CApache [system] {
+  use CAPR
+  use CAPRUtil
+  
+  header "CApache2Shim.h"
+  export *
+}
