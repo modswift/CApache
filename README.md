@@ -6,6 +6,7 @@
 ![Apache 2](https://img.shields.io/badge/apache-2-yellow.svg)
 ![Swift3](https://img.shields.io/badge/swift-3-blue.svg)
 ![Swift4](https://img.shields.io/badge/swift-4-blue.svg)
+![Swift5](https://img.shields.io/badge/swift-4-blue.svg)
 ![macOS](https://img.shields.io/badge/os-macOS-green.svg?style=flat)
 ![tuxOS](https://img.shields.io/badge/os-tuxOS-green.svg?style=flat)
 
@@ -27,7 +28,7 @@ let package = Package(
   name: "MyTool",
 	
   dependencies: [
-    .Package(url: "git@github.com:modswift/CApache.git", majorVersion: 0),
+    .Package(url: "git@github.com:modswift/CApache.git", from: "2.0.0"),
   ]
 )
 ```
@@ -36,6 +37,8 @@ Import the CAPR module.
 
     import CAPR
     import CAPRUtil
+
+Note: If you are still on Swift 3 or 4.0, use version `1.0.0`.
 
 ### APR Database Example
 
