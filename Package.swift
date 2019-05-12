@@ -11,8 +11,8 @@ let package = Package(
       .systemLibrary(name: "CApache",
           pkgConfig: "mod_swift",
           providers: [
-              .brew("modswift/mod_swift"),
-              .apt("apache2-dev") // Note: still requires mod_swift install!
+              .brew(["modswift/mod_swift"]),
+              .apt(["apache2-dev"]) // Note: still requires mod_swift install!
           ]
       )
   ]
