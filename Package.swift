@@ -1,18 +1,19 @@
+// swift-tools-version:4.2
 import PackageDescription
 
 let package = Package(
   name: "CApache",
 
-  pkgConfig: "mod_swift",
-	
-  providers: [
-    .Brew("modswift/mod_swift"),
-    .Apt("apache2-dev") // Note: still requires mod_swift install!
-  ],	
-	
-  exclude: [
-    "README.md",
-    "LICENSE",
-    "ModuleMaps"
+  products: [
+      .library(name: "CApache", targets: ["CApache"]),
+  ],
+  targets: [
+      .systemLibrary(name: "CApache",
+          pkgConfig: "mod_swift",
+          providers: [
+              .brew("modswift/mod_swift"),
+              .apt("apache2-dev") // Note: still requires mod_swift install!
+          ]
+      )
   ]
 )
